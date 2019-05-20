@@ -1,0 +1,36 @@
+.header {
+  padding: .3rem 0 0rem;
+  background: rgba(33, 122, 100, 0.6);
+}
+
+.title {
+  color: #000000;
+  font-size: 3rem;
+  text-decoration: none;
+}
+
+.nav-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0px;
+  text-align: center;
+}
+
+.nav-list-item{
+  display: inline-block;
+  padding: 0px 50px;
+}
+.nav-item {
+  color: #000000;
+  font-family: "Oswald-Regular";
+  font-size: 1.4rem;
+  text-decoration: none;
+}
+
+.nav-item:hover {
+  color: #666666;
+}
+
+.active-nav-item {
+  color: #333333;
+}
