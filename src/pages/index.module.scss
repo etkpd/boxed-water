@@ -1,0 +1,27 @@
+.Page {
+  font-family: "Arial";
+}
+
+.myButton {
+  background-color:#792d44;
+  border-radius:12px;
+  display:inline-block;
+  cursor:pointer;
+  padding:8px 12px;
+  text-decoration:none;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:17px;
+  text-decoration:none;
+}
+.myButton:hover {
+  background-color:#6b2b3f;
+}
+.myButton:active {
+  position:relative;
+  top:1px;
+}
+
+.Para {
+  font-family: "Roboto-Regular"
+}

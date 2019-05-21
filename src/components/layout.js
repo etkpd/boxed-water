@@ -4,11 +4,10 @@ import NavBar from './NavBar/NavBar'
 import Footer from './footer'
 import '../styles/index.scss'
 import layoutStyles from './layout.module.scss'
-import globalStyles from '../../shared/css/globalStyles.scss'
 
 const Layout = (props) => {
     return (
-        <div className={globalStyles}>
+        
             <div className={layoutStyles.container}>
                 <NavBar/>
                 <div className={layoutStyles.content}>
@@ -16,7 +15,7 @@ const Layout = (props) => {
                 </div>
                 <Footer/>
             </div>
-        </div>
+      
     )
 }
 
