@@ -9,11 +9,17 @@ const IndexPage = ({props, data}) => {
   return (
     <Layout>
       <div className={indexStyles.Page}>
-      <section>
-        <h1>Proin pharetra ullamcorper</h1>
-        <p>Etiam et justo blandit mi ultricies sodales. Integer eget lorem ac velit interdum vestibulum. </p>
-        <Link to="/store" className={indexStyles.myButton}>Order Online</Link>
-        <Img fluid={data.product1.childImageSharp.fluid} ></Img>
+      <section className={indexStyles.Section1}>
+        <div className={indexStyles.AllContent1}>
+          <div className={indexStyles.Content1}>
+            <h1>Proin pharetra ullamcorper</h1>
+            <p>Etiam et justo blandit mi ultricies sodales. Integer eget lorem ac velit interdum vestibulum. </p>
+            <Link to="/store" className={indexStyles.myButton}>Order Online</Link>
+          </div>
+          <div className={indexStyles.Image1}>
+            <Img fluid={data.product1.childImageSharp.fluid} ></Img>
+          </div>
+        </div>
       </section>
       
       <section>
@@ -25,24 +31,26 @@ const IndexPage = ({props, data}) => {
       <section>
         <article>
           <figure>
-            <img alt='one'></img>
+          <Img fluid={data.product3.childImageSharp.fluid} ></Img>
           </figure>
-          <h3 className={indexStyles.Para}>Duis vitae euismod</h3>
-          <p className={indexStyles.Para}>Praesent in mi vel mi mollis tincidunt et a libero. Donec sed diam faucibus, iaculis massa et, rhoncus felis. Fusce imperdiet eleifend nunc, at eleifend dui venenatis nec. Duis porta ut felis eu luctus. </p>            
+          <h3>Duis vitae euismod</h3>
+          <p>Praesent in mi vel mi mollis tincidunt et a libero. Donec sed diam faucibus, iaculis massa et, rhoncus felis. Fusce imperdiet eleifend nunc, at eleifend dui venenatis nec. Duis porta ut felis eu luctus. </p>            
         </article>
         <article>
           <figure>
-            <img alt='one'></img>
+        <Img fluid={data.product4.childImageSharp.fluid} ></Img>
+         
           </figure>
-          <h3 className={indexStyles.Para}>Praesent a lorem</h3>
-          <p className={indexStyles.Para}>Nunc dapibus consectetur mi quis facilisis. Phasellus facilisis imperdiet sagittis. Quisque tellus lacus, porta et nisl at, porttitor sagittis diam.</p>            
+          <h3>Praesent a lorem</h3>
+          <p>Nunc dapibus consectetur mi quis facilisis. Phasellus facilisis imperdiet sagittis. Quisque tellus lacus, porta et nisl at, porttitor sagittis diam.</p>            
         </article>
         <article>
           <figure>
-            <img alt='one'></img>
+        <Img fluid={data.product5.childImageSharp.fluid} ></Img>
+            
           </figure>
-          <h3 className={indexStyles.Para}>Pellentesque ultrices</h3>
-          <p className={indexStyles.Para}>Donec lacus ligula, maximus a vulputate id, molestie vitae justo. Aliquam luctus cursus urna sit amet tempor. Phasellus eu efficitur nulla. </p>            
+          <h3>Pellentesque ultrices</h3>
+          <p>Donec lacus ligula, maximus a vulputate id, molestie vitae justo. Aliquam luctus cursus urna sit amet tempor. Phasellus eu efficitur nulla. </p>            
         </article>
       </section>
       </div>
@@ -74,5 +82,34 @@ export const dataQuery = graphql`
       }
     }
 
+    product3: file(sourceInstanceName: { eq: "images" }
+      name: { eq: "boxed-water-is-better-1464048-unsplash" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 1920) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+
+    product4: file(sourceInstanceName: { eq: "images" }
+      name: { eq: "boxed-water-is-better-1464025-unsplash" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 1920) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+
+    product5: file(sourceInstanceName: { eq: "images" }
+      name: { eq: "boxed-water-is-better-1464053-unsplash" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 1920) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
   }
 `

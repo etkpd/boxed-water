@@ -2,6 +2,8 @@ import React from "react"
 import { Link } from "gatsby"
 
 import Logo from '../../../content/svg/boxedwater-logo.svg'
+import yourSVG from '../../../content/svg/boxedwater-logo.svg'
+import boxedwater from '../../../content/images/250ml-box.png'
 
 import headerStyles from "./NavBar.module.scss"
 
@@ -37,7 +39,7 @@ const Header = () => {
               activeClassName={headerStyles.activeNavItem}
               to="/"
             >
-              <Logo></Logo>
+              <Logo className={headerStyles.Logo}></Logo>
               
             </Link>
           </li>

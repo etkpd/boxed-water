@@ -7,11 +7,11 @@
   border-radius:12px;
   display:inline-block;
   cursor:pointer;
-  padding:8px 12px;
+  padding:0px 24px;
   text-decoration:none;
   color:#ffffff;
-  font-family:Arial;
-  font-size:17px;
+  font-family:"Roboto-Regular";
+  font-size:19px;
   text-decoration:none;
 }
 .myButton:hover {
@@ -22,6 +22,38 @@
   top:1px;
 }
 
-.Para {
-  font-family: "Roboto-Regular"
+.Section1{
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+
+  @media screen and (min-width: 68.75em){  
+
+  padding-bottom: 4rem;
+  padding-top: 4rem;
+
 }
+}
+
+.AllContent1{
+  display:flex;
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.Content1{
+  width:60%;
+  font-size: 2rem;
+  padding-top: 4.9rem;
+  line-height: 147.2%;
+
+  p{
+    padding-right: 11rem;
+  }
+
+}
+
+.Image1{
+  width:40%;
+}
+
