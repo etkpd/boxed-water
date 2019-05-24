@@ -13,17 +13,26 @@ const Header = () => {
 
   return (
     <header className={headerStyles.header}>
-      <nav>
+      <nav className={headerStyles.nav}>
         <ul className={headerStyles.navList}>
+
+       
         <li className={headerStyles.navListItem}>
+          
+
             <Link
               className={headerStyles.navItem}
               activeClassName={headerStyles.activeNavItem}
               to="/store"
-            >
+              >
               STORE
             </Link>
+
+            
           </li>
+          
+
+
           <li className={headerStyles.navListItem}>          
             <Link
               className={headerStyles.navItem}

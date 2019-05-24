@@ -9,6 +9,7 @@ const IndexPage = ({props, data}) => {
   return (
     <Layout>
       <div className={indexStyles.Page}>
+        
       <section className={indexStyles.Section1}>
         <div className={indexStyles.AllContent1}>
           <div className={indexStyles.Content1}>
@@ -22,10 +23,16 @@ const IndexPage = ({props, data}) => {
         </div>
       </section>
       
-      <section>
-        <h1>Vivamus pellentesque</h1>
-        <p>Quisque blandit quam et fringilla fermentum. Pellentesque libero felis, faucibus id aliquam pretium, rhoncus vel libero. Praesent blandit felis et diam pretium sollicitudin sed ac turpis. Praesent molestie erat vel mi vehicula auctor suscipit eget est. Maecenas feugiat nunc a nunc congue venenatis. Etiam placerat hendrerit mauris suscipit scelerisque.</p>
-        <Img fluid={data.product2.childImageSharp.fluid} ></Img>
+      <section className={indexStyles.Section2}>
+        <div className={indexStyles.AllContent2}>
+          <div className={indexStyles.Content2}>
+            <h1>Vivamus pellentesque</h1>
+            <p>Quisque blandit quam et fringilla fermentum. Pellentesque libero felis, faucibus id aliquam pretium, rhoncus vel libero. Praesent blandit felis et diam pretium sollicitudin sed ac turpis. Praesent molestie erat vel mi vehicula auctor suscipit eget est. Maecenas feugiat nunc a nunc congue venenatis. Etiam placerat hendrerit mauris suscipit scelerisque.</p>
+          </div>
+          <div className={indexStyles.Image2}>
+            <Img fluid={data.product2.childImageSharp.fluid} ></Img>        
+          </div>
+        </div>
       </section>
 
       <section>
@@ -66,7 +73,7 @@ export const dataQuery = graphql`
       name: { eq: "boxed-water-is-better-1463990-unsplash" }
     ) {
       childImageSharp {
-        fluid(maxWidth: 1920) {
+        fluid(maxWidth: 960) {
           ...GatsbyImageSharpFluid
         }
       }
