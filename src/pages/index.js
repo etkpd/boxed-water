@@ -17,20 +17,21 @@ const IndexPage = ({props, data}) => {
             <p>Etiam et justo blandit mi ultricies sodales. Integer eget lorem ac velit interdum vestibulum. </p>
             <Link to="/store" className={indexStyles.myButton}>Order Online</Link>
           </div>
-          <div className={indexStyles.Image1}>
-            <Img fluid={data.product1.childImageSharp.fluid} ></Img>
+          <div className={indexStyles.ImageContainer1}>
+            <Img className={indexStyles.Image1} fluid={data.product1.childImageSharp.fluid} ></Img>
           </div>
         </div>
       </section>
       
       <section className={indexStyles.Section2}>
         <div className={indexStyles.AllContent2}>
-          <div className={indexStyles.Content2}>
-            <h1>Vivamus pellentesque</h1>
-            <p>Quisque blandit quam et fringilla fermentum. Pellentesque libero felis, faucibus id aliquam pretium, rhoncus vel libero. Praesent blandit felis et diam pretium sollicitudin sed ac turpis. Praesent molestie erat vel mi vehicula auctor suscipit eget est. Maecenas feugiat nunc a nunc congue venenatis. Etiam placerat hendrerit mauris suscipit scelerisque.</p>
-          </div>
-          <div className={indexStyles.Image2}>
-            <Img fluid={data.product2.childImageSharp.fluid} ></Img>        
+        <div className={indexStyles.Image2Container}>
+              <div className={indexStyles.Tint}></div>
+              <Img className={indexStyles.BigImage} fluid={data.product2.childImageSharp.fluid} ></Img>  
+              <div className={indexStyles.Content2}>
+                <h1>Vivamus pellentesque</h1>
+                <p>Quisque blandit quam et fringilla fermentum. Pellentesque libero felis, faucibus id aliquam pretium, rhoncus vel libero.</p>
+              </div>
           </div>
         </div>
       </section>
