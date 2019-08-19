@@ -25,7 +25,6 @@
 .Section1{
   padding-bottom: 2rem;
   padding-top: 2rem;
-  border: solid 1px blue;
 
   @media screen and (min-width: 68.75em){  
   }
@@ -58,8 +57,6 @@
   p{
      padding-right: 1.6rem;
   }
-
-
 
   @media screen and (max-width: 1270px){  
     h1{
@@ -115,28 +112,44 @@
   position: absolute;
 }
 
+.Section2{
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+}
 
 .AllContent2{
   position: relative;
   max-width: 1500px;
-  height: calc(100vw*.6666);
+  height: 1000px;
   left: -1.875rem;
+
+  @media screen and (max-width: 1500px){  
+    height: calc(100vw*.6666);
+  }
+
+  @media screen and (max-width: 920px){  
+    height: 70vw;
+  }  
+
+  @media screen and (max-width: 650px){  
+    height: 55vw;
+  }
+  
+  @media screen and (max-width: 500px){  
+    height: 66vw;
+  }
 }
 
-/* .Image2Container {
-
-}  */
-
- .BigImage{
-    position: absolute !important;
-    max-width: 1500px;
-    width: 100vw;
-    //max-height: 50vw;
-    //height: 100vw;
-    margin: 0 auto;
-    object-fit: cover;
-    z-index: 0;
-   // object-position: 50% 90%;
+.BigImage{
+  position: absolute !important;
+  max-width: 1500px;
+  width: 100vw;
+  //max-height: 50vw;
+  //height: 100vw;
+  margin: 0 auto;
+  object-fit: cover;
+  z-index: 0;
+  // object-position: 50% 90%;
    
   @media screen and (max-width: 920px){  
     height: 70vw;
@@ -174,12 +187,24 @@
     opacity: 0.2; 
     background: rgb(0, 0, 0.7);
   } 
+
+  @media screen and (max-width: 920px){  
+    height: 70vw;
+  }  
+
+  @media screen and (max-width: 650px){  
+    height: 55vw;
+  }
+
+  @media screen and (max-width: 500px){  
+    height: 66vw;
+  }
 }
 
 .Content2{
   position: absolute;
   z-index: 5;
-  top:calc(100vw*.11);
+  top:calc(100vw*.14);
   left:calc(100vw*.05);
   width: calc(100vw*.27);
   font-size: 1.7rem;
@@ -254,3 +279,24 @@
   }
 
 }
+
+.Section3{
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+  margin-top: 2rem;
+}
+
+.AllContent3{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 50px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media screen and (max-width: 600px){  
+    grid-template-columns: 1fr;
+  }
+
+}
+

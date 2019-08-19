@@ -19,6 +19,13 @@
   src: local("Roboto Regular"), local("Roboto-Regular"), url(./fonts/Roboto-Regular.ttf) format("truetype");
 }
 
+@font-face {
+  font-family: "Roboto-Medium";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Roboto Medium"), local("Roboto-Medium"), url(./fonts/Roboto-Medium.ttf) format("truetype");
+}
+
 /* Reset provided by https://github.com/gatsbyjs/gatsby-starter-blog via MIT license */
 
 html {
@@ -404,11 +411,11 @@ p {
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
+  margin-bottom: 0;
   padding-bottom: 0;
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
 }
 figure {
   margin-left: 0;
