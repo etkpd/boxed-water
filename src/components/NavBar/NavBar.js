@@ -33,8 +33,6 @@ const Header = () => {
           </li>
           <li className={headerStyles.navListItem}>
             <Link
-              className={headerStyles.navItem}
-              activeClassName={headerStyles.activeNavItem}
               to="/"
             >
               <Logo className={headerStyles.Logo}></Logo>
