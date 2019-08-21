@@ -1,0 +1,77 @@
+.CartonImage1{
+  height: 14.375rem;
+}
+.CartonImage2{
+  height: 25rem;
+}
+.CartonImage3{
+  height: 28.4125rem;
+}
+
+.ImageSelectionSection{
+  height: 564px;
+  border: red solid 1px;
+  margin: 0px -1.875rem;
+  padding: 0px 0px;
+}
+
+.Images{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.ImageContainer{
+  width: 195px;
+  justify-self: center;
+  align-self: end;
+}
+
+.quantitySelection{
+  display: flex;
+}
+
+.StepsLabel{
+  width: 251px;
+  margin: 12px auto;
+}
+
+.PackSizeSelection{
+  width: 565px;
+  margin: 11px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+.QuantitySelection{
+  display: flex;
+  justify-content: center;
+
+  input[type=text] {
+    width: 24px;
+    height: 24px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-radius: 1px;
+    font-size: 18px;
+    background-color: white;
+    padding: 3px 2px 3px 0px;
+    margin: 0px 3px 0px 3px;
+    text-align: center;
+    align-self: center;
+  }
+}
+
+.DeliveryOptions{
+  width: 453px;
+  margin: 15px auto;
+  display: block;
+  padding-left: 111px;
+  position: relative;
+}
+
+.SubscribeDropDown{    
+  position: absolute;
+  right: -164px;
+  bottom: 5px;
+}
