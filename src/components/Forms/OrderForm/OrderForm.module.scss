@@ -1,17 +1,19 @@
 .CartonImage1{
   height: 14.375rem;
+  filter: blur(2px);
 }
 .CartonImage2{
   height: 25rem;
 }
 .CartonImage3{
   height: 28.4125rem;
+  filter: blur(2px);
 }
 
 .ImageSelectionSection{
   height: 564px;
   border: red solid 1px;
-  margin: 0px -1.875rem;
+  margin: 15px 15.125rem;
   padding: 0px 0px;
 }
 
@@ -24,6 +26,7 @@
   width: 195px;
   justify-self: center;
   align-self: end;
+  cursor: pointer;
 }
 
 .quantitySelection{
