@@ -42,12 +42,13 @@
 }
 
 .PackSizeSelection{
-  width: 588.5px;
   margin: 11px auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
-  justify-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.PackSizeSelectionButtonContainer{
+  margin: 0px 5px
 }
 
 .DeliveryOptions{

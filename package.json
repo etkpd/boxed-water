@@ -10,7 +10,8 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+    "clean": "gatsby clean"
   },
   "dependencies": {
     "gatsby": "^2.3.3",
@@ -21,6 +22,7 @@
     "gatsby-remark-images": "^3.0.10",
     "gatsby-remark-relative-images": "^0.2.2",
     "gatsby-source-filesystem": "^2.0.28",
+    "gatsby-transformer-json": "^2.2.6",
     "gatsby-transformer-remark": "^2.3.8",
     "gatsby-transformer-sharp": "^2.1.19",
     "node-sass": "^4.11.0",

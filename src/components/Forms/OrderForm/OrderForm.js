@@ -10,16 +10,27 @@ import stylesOrderForm from './OrderForm.module.scss'
 
 class OrderForm extends Component {
   state={
-    focusedImageIndex: 1
+    selectedCartonSize: 1,
+    selectedPackSize:0,
+    subscribeDeliveryPeriod: "1 MONTH"
   }
 
   setFocusedImage = (selectedImageIndex) =>{
     console.log(selectedImageIndex)
-    this.setState({focusedImageIndex: selectedImageIndex})
+    this.setState({selectedCartonSize: selectedImageIndex})
+  }
+
+  onChange = (e) =>{
+    this.setState({subscribeDeliveryPeriod: e.target.value})
+  }
+
+  setSelectedPackSizeIndex = (packSizeIndex) =>{
+    this.setState({selectedPackSize: packSizeIndex})
   }
 
   render() {
-    let images = this.props.productImages
+    let images = this.props.productImages;
+    let pricingData = this.props.pricingData;
     return (
       <>
         <div className={stylesOrderForm.ImageSelectionSection}>
@@ -30,7 +41,7 @@ class OrderForm extends Component {
                 key={index}
                 image={image}
                 index={index}
-                focusedIndex={this.state.focusedImageIndex}
+                focusedIndex={this.state.selectedCartonSize}
                 onClick={() => this.setFocusedImage(index)}
                 />
                 )
@@ -41,18 +52,26 @@ class OrderForm extends Component {
         <div>
           <h3 className={stylesOrderForm.StepsLabel}>1. SELECT AMOUNT</h3>
           <div className={stylesOrderForm.PackSizeSelection}>
-            <Button.Primary
-              type='button'
-              label='6 PACK - $15.42'
-            />
-            <Button.Secondary
-              type='button'
-              label='12 PACK - $24.74'
-            />
-            <Button.Secondary
-              type='button'
-              label='24 PACK - $44.96'
-            />
+            {pricingData[this.state.selectedCartonSize].pack_sizes.map((pack_size, packSizeIndex)=>{
+              let buttonLabel = `${pack_size.size} - $${pack_size.price}`
+              console.log(packSizeIndex)
+              return(
+                <div className={stylesOrderForm.PackSizeSelectionButtonContainer} key={packSizeIndex}>
+                  {(packSizeIndex===this.state.selectedPackSize)
+                  ? <Button.Primary
+                      type='button'
+                      label={buttonLabel}
+                      onClick={()=> this.setSelectedPackSizeIndex(packSizeIndex)}
+                    />
+                  : <Button.Secondary
+                      type='button'
+                      label={buttonLabel}
+                      onClick={()=> this.setSelectedPackSizeIndex(packSizeIndex)}
+                    />
+                  }
+                </div>
+              )
+            })}
           </div>          
             <QuantitySelector/>
         </div>
@@ -66,7 +85,7 @@ class OrderForm extends Component {
             />
             <HistoryDropDown
               className={stylesOrderForm.SubscribeDropDown}
-              currentValue={"3 MONTHS"}
+              currentValue={this.state.subscribeDeliveryPeriod}
               values={[
                 "1 MONTH",
                 "2 MONTHS",
@@ -75,6 +94,7 @@ class OrderForm extends Component {
                 "5 MONTHS",
                 "6 MONTHS"
               ]}
+              onChange={this.onChange}
             />
           </div>
         </div>

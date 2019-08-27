@@ -21,6 +21,12 @@ class QuantitySelector extends Component {
     }
   }
 
+  enterValue = (e) => {
+    //Further Improvement: Scantize Values. allow only positive values. display error when condition not met
+    this.setState({inputValue: e.target.value})
+  }
+  
+
   render() {
     return (
       <div className={stylesQuantitySelector.main}>
@@ -29,7 +35,7 @@ class QuantitySelector extends Component {
           increment={false}
           onClick={this.decrementInputValue}
         />
-        <input type="text" value={this.state.inputValue}></input>
+        <input type="text" value={this.state.inputValue} onChange={this.enterValue}></input>
         <QuantityAdjustButton
           increment={true}
           onClick={this.incrementInputValue}
