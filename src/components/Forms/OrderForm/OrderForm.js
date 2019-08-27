@@ -11,13 +11,18 @@ import stylesOrderForm from './OrderForm.module.scss'
 class OrderForm extends Component {
   state={
     selectedCartonSize: 1,
-    selectedPackSize:0,
-    subscribeDeliveryPeriod: "1 MONTH"
+    selectedPackSize: 0,
+    subscribeDeliveryPeriod: "1 MONTH",
+    quantityValue: 1
   }
 
   setFocusedImage = (selectedImageIndex) =>{
     console.log(selectedImageIndex)
-    this.setState({selectedCartonSize: selectedImageIndex})
+    this.setState({
+      selectedCartonSize: selectedImageIndex,
+      selectedPackSize: 0,
+      quantityValue: 1
+    })
   }
 
   onChange = (e) =>{
@@ -28,9 +33,31 @@ class OrderForm extends Component {
     this.setState({selectedPackSize: packSizeIndex})
   }
 
+
+  incrementQuantityValue = () =>{
+    this.setState(prevState=>({
+      quantityValue: ++prevState.quantityValue
+    }))
+  }
+  
+  decrementQuantityValue = () =>{
+    if(this.state.quantityValue>1){
+      this.setState(prevState=>({
+        quantityValue: --prevState.quantityValue
+      }))
+    }
+  }
+
+  enterQuantityValue = (e) => {
+    //Further Improvement: Scantize Values. allow only positive values. display error when condition not met
+    this.setState({quantityValue: e.target.value})
+  }
+
+
   render() {
     let images = this.props.productImages;
     let pricingData = this.props.pricingData;
+    let priceForSelectedProduct = pricingData[this.state.selectedCartonSize].pack_sizes[this.state.selectedPackSize].price
     return (
       <>
         <div className={stylesOrderForm.ImageSelectionSection}>
@@ -73,29 +100,37 @@ class OrderForm extends Component {
               )
             })}
           </div>          
-            <QuantitySelector/>
+            <QuantitySelector
+              quantityValue={this.state.quantityValue}
+              enterQuantityValue={this.enterQuantityValue}
+              decrementQuantityValue={this.decrementQuantityValue}
+              incrementQuantityValue={this.incrementQuantityValue}
+            />
         </div>
         
         <div>
           <h3 className={stylesOrderForm.StepsLabel}>2. CHOOSE DELIVERY</h3>
           <div className={stylesOrderForm.DeliveryOptions}>
             <RadioGroup
-              key={"options"}
-              options={["ONE-TIME PURCHASE","SUBSCRIBE & SAVE 10% ($22.27)"]}
+              options={(pricingData[this.state.selectedCartonSize].pack_sizes[this.state.selectedPackSize].subAndSave)?["ONE-TIME PURCHASE",`SUBSCRIBE & SAVE 10% ($${Math.round((priceForSelectedProduct*0.9) * 100) / 100 })`]:["ONE-TIME PURCHASE"]}
             />
-            <HistoryDropDown
-              className={stylesOrderForm.SubscribeDropDown}
-              currentValue={this.state.subscribeDeliveryPeriod}
-              values={[
-                "1 MONTH",
-                "2 MONTHS",
-                "3 MONTHS",
-                "4 MONTHS",
-                "5 MONTHS",
-                "6 MONTHS"
-              ]}
-              onChange={this.onChange}
-            />
+            {(pricingData[this.state.selectedCartonSize].pack_sizes[this.state.selectedPackSize].subAndSave)
+            ?
+              <HistoryDropDown
+                className={stylesOrderForm.SubscribeDropDown}
+                currentValue={this.state.subscribeDeliveryPeriod}
+                values={[
+                  "1 MONTH",
+                  "2 MONTHS",
+                  "3 MONTHS",
+                  "4 MONTHS",
+                  "5 MONTHS",
+                  "6 MONTHS"
+                ]}
+                onChange={this.onChange}
+              />
+            :null
+            }
           </div>
         </div>
 

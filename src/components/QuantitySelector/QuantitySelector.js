@@ -1,48 +1,27 @@
-import React, { Component } from 'react';
+import React from 'react';
 import QuantityAdjustButton from './QuantityAdjustButton/QuantityAdjustButton';
 import stylesQuantitySelector from './QuantitySelector.module.scss'
 
-class QuantitySelector extends Component {
-  state = {
-    inputValue: 1
-  }
-
-  incrementInputValue = () =>{
-    this.setState(prevState=>({
-      inputValue: ++prevState.inputValue
-    }))
-  }
-  
-  decrementInputValue = () =>{
-    if(this.state.inputValue>1){
-      this.setState(prevState=>({
-        inputValue: --prevState.inputValue
-      }))
-    }
-  }
-
-  enterValue = (e) => {
-    //Further Improvement: Scantize Values. allow only positive values. display error when condition not met
-    this.setState({inputValue: e.target.value})
-  }
-  
-
-  render() {
-    return (
-      <div className={stylesQuantitySelector.main}>
+const QuantitySelector = ({
+  quantityValue, 
+  enterQuantityValue, 
+  decrementQuantityValue, 
+  incrementQuantityValue
+}) => {
+  return (
+    <div className={stylesQuantitySelector.main}>
         <p>QUANTITY</p>
         <QuantityAdjustButton
           increment={false}
-          onClick={this.decrementInputValue}
+          onClick={decrementQuantityValue}
         />
-        <input type="text" value={this.state.inputValue} onChange={this.enterValue}></input>
+        <input type="text" value={quantityValue} onChange={enterQuantityValue}></input>
         <QuantityAdjustButton
           increment={true}
-          onClick={this.incrementInputValue}
+          onClick={incrementQuantityValue}
         />
       </div>
-    );
-  }
-}
+  );
+};
 
 export default QuantitySelector;

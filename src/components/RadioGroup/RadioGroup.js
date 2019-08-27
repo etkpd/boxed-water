@@ -7,16 +7,22 @@ class RadioGroup extends React.Component {
     super(props);
 
     this.state = {
-      selectedOption: "ONE-TIME PURCHASE"
+      selectedOption: "ONE-TIME PURCHASE",
+      selectedOptionIndex: 0
     }
 
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(e) {
+    //console.log(index)
+    //this.setState({selectedOptionIndex: index})
+    
     this.setState({selectedOption: e.target.name})
   }
   
+  
+
   render() {
     const {options} = this.props;
 
@@ -24,7 +30,7 @@ class RadioGroup extends React.Component {
       <>
       <div className={styles.filterinputs} >
         {
-          options.map(option => (
+          options.map((option, index) => (
             <RadioItem
               key={option}
               name={option} 
