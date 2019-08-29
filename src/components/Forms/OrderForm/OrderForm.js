@@ -13,15 +13,16 @@ class OrderForm extends Component {
     selectedCartonSize: 1,
     selectedPackSize: 0,
     subscribeDeliveryPeriod: "1 MONTH",
-    quantityValue: 1
+    quantityValue: 1,
+    deliveryOption: "ONE-TIME PURCHASE"
   }
 
-  setFocusedImage = (selectedImageIndex) =>{
-    console.log(selectedImageIndex)
+  setCartonSize = (selectedCartonIndex) =>{
     this.setState({
-      selectedCartonSize: selectedImageIndex,
+      selectedCartonSize: selectedCartonIndex,
       selectedPackSize: 0,
-      quantityValue: 1
+      quantityValue: 1,
+      deliveryOption: "ONE-TIME PURCHASE"
     })
   }
 
@@ -30,9 +31,16 @@ class OrderForm extends Component {
   }
 
   setSelectedPackSizeIndex = (packSizeIndex) =>{
-    this.setState({selectedPackSize: packSizeIndex})
+    this.setState({
+      selectedPackSize: packSizeIndex,
+      quantityValue: 1,
+      deliveryOption: "ONE-TIME PURCHASE"
+    })
   }
 
+  setDeliveryOption= (e) => {
+    this.setState({deliveryOption: e.target.name})
+  }
 
   incrementQuantityValue = () =>{
     this.setState(prevState=>({
@@ -58,6 +66,9 @@ class OrderForm extends Component {
     let images = this.props.productImages;
     let pricingData = this.props.pricingData;
     let priceForSelectedProduct = pricingData[this.state.selectedCartonSize].pack_sizes[this.state.selectedPackSize].price
+    let totalPrice = Math.round((priceForSelectedProduct * this.state.quantityValue) * 100) / 100;
+    let discountedTotalPrice = Math.round(((priceForSelectedProduct * this.state.quantityValue) * 0.90) * 100) / 100;
+
     return (
       <>
         <div className={stylesOrderForm.ImageSelectionSection}>
@@ -69,7 +80,7 @@ class OrderForm extends Component {
                 image={image}
                 index={index}
                 focusedIndex={this.state.selectedCartonSize}
-                onClick={() => this.setFocusedImage(index)}
+                onClick={() => this.setCartonSize(index)}
                 />
                 )
               })}
@@ -81,7 +92,6 @@ class OrderForm extends Component {
           <div className={stylesOrderForm.PackSizeSelection}>
             {pricingData[this.state.selectedCartonSize].pack_sizes.map((pack_size, packSizeIndex)=>{
               let buttonLabel = `${pack_size.size} - $${pack_size.price}`
-              console.log(packSizeIndex)
               return(
                 <div className={stylesOrderForm.PackSizeSelectionButtonContainer} key={packSizeIndex}>
                   {(packSizeIndex===this.state.selectedPackSize)
@@ -112,8 +122,14 @@ class OrderForm extends Component {
           <h3 className={stylesOrderForm.StepsLabel}>2. CHOOSE DELIVERY</h3>
           <div className={stylesOrderForm.DeliveryOptions}>
             <RadioGroup
-              options={(pricingData[this.state.selectedCartonSize].pack_sizes[this.state.selectedPackSize].subAndSave)?["ONE-TIME PURCHASE",`SUBSCRIBE & SAVE 10% ($${Math.round((priceForSelectedProduct*0.9) * 100) / 100 })`]:["ONE-TIME PURCHASE"]}
+              options={
+                (pricingData[this.state.selectedCartonSize].pack_sizes[this.state.selectedPackSize].subAndSave)
+                ?["ONE-TIME PURCHASE",`SUBSCRIBE & SAVE 10% ($${Math.round((priceForSelectedProduct*0.9) * 100) / 100 })`]
+                :["ONE-TIME PURCHASE"]}
+              selectedDeliveryOption={this.state.deliveryOption}
+              setDeliveryOption={this.setDeliveryOption}
             />
+
             {(pricingData[this.state.selectedCartonSize].pack_sizes[this.state.selectedPackSize].subAndSave)
             ?
               <HistoryDropDown
@@ -134,8 +150,14 @@ class OrderForm extends Component {
           </div>
         </div>
 
-        <div>
-
+        <div className={stylesOrderForm.TotalPriceSection}>
+          <div className={stylesOrderForm.TotalPrice}>
+            {(this.state.deliveryOption === "ONE-TIME PURCHASE")? `$${totalPrice}`: `$${discountedTotalPrice}`}
+          </div>
+          <Button.AddToCart
+            type='button'
+            label={"ADD TO CART"}
+          />
         </div>
       </>
     );

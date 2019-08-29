@@ -28,12 +28,13 @@
 
 .nav-list {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-gap: 50px;
+  grid-template-columns: 1fr 1.6fr 1fr 1fr 1fr;
+  grid-gap: 85px;
   list-style-type: none;
   padding: 0px;
   align-items: center;
   margin: auto;
+  justify-items: center;
 }
 
 .nav-list-item{

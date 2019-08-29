@@ -11,9 +11,9 @@
 }
 
 .ImageSelectionSection{
-  height: 564px;
-  border: red solid 1px;
-  margin: 15px 15.125rem;
+  height: 521px;
+  margin: 0px 15.125rem;
+  margin-top: 24px;
   padding: 0px 0px;
 }
 
@@ -63,4 +63,21 @@
   position: absolute;
   right: -221px;
   bottom: 4px;
+}
+
+.TotalPriceSection{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 13px;
+  width: 100%;
+  margin: auto;
+  justify-content: center;
+
+  .TotalPrice{
+    font-size: 32px;
+    font-family: 'Roboto-Regular';
+    align-self: center;
+    text-align: right;
+    color: #217A64;
+  }
 }
