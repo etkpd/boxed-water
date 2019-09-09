@@ -63,7 +63,6 @@ exports.createPages = ({ graphql, actions }) => {
 
 		posts.forEach(({node}, i) => {
 			let tags = node.frontmatter.tags
-			console.log(tags)
 			tags.forEach(tag => {
 				tagMap.set(tag, tagMap.get(tag) ? tagMap.get(tag) + 1: 1)
 			})

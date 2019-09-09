@@ -3,6 +3,7 @@ import { Link, graphql } from 'gatsby'
 
 import Layout from '../components/layout'
 import blogStyles from './blog-list.module.scss'
+import Pagination from '../components/Pagination/Pagination'
 
 const BlogPage = ({data, pageContext}) => {
   const { currentPage, numPages } = pageContext
@@ -13,59 +14,42 @@ const BlogPage = ({data, pageContext}) => {
 
   return (
     <Layout>
-      <ol className={blogStyles.posts}>
-        {data.allMarkdownRemark.edges.map((edge) => {
-          return (
-          <li className={blogStyles.post}>
-            <Link to={`/blog/${edge.node.frontmatter.path}`}>
-              <h2>{edge.node.frontmatter.title}</h2>
-              <p>{edge.node.excerpt}</p>
-              <p>{edge.node.frontmatter.date}</p>
-              {edge.node.frontmatter.tags.map((tag)=>{
-                return(
-                  <Link to={`/tags/${tag}`}>
-                    <span>#{tag} </span>
-                  </Link>
-                )
-              })}
-            </Link>
-          </li>
-          )
-        })}
-      </ol>
-      <div>
-      {!isFirst && (
-            <Link to={prevPage} rel="prev">
-              ← Previous Page
-            </Link>
-      )}
-      {Array.from({ length: numPages }, (_, i) => (
-        <li
-          key={`pagination-number${i + 1}`}
-          style={{
-            margin: 0,
-          }}
-        >
-          <Link
-            to={`/blog/${i === 0 ? '' : i + 1}`}
-            style={{
-              padding: '2px',
-              textDecoration: 'none',
-              color: i + 1 === currentPage ? '#ffffff' : '',
-              background: i + 1 === currentPage ? '#007acc' : '',
-            }}
-          >
-            {i + 1}
-          </Link>
-        </li>
-      ))}
-      {!isLast && (
-        <Link to={nextPage} rel="next">
-          Next Page →
-        </Link>
-      )}
+      <div className={blogStyles.BlogPage}>
+        <ol className={blogStyles.posts}>
+          {data.allMarkdownRemark.edges.map((edge, index, tags) => {
+            return (
+              <li className={blogStyles.post}>
+                <Link to={`/blog/${edge.node.frontmatter.path}`}>
+                  <h2>{edge.node.frontmatter.title}</h2>
+                  <p>{edge.node.excerpt}</p>
+                </Link>
+                <div className={blogStyles.DateAndTags}>
+                  <p className={blogStyles.date}>{edge.node.frontmatter.date}</p>
+                  <div className={blogStyles.tags}>
+                    {edge.node.frontmatter.tags.map((tag)=>{
+                      return(
+                        <Link to={`/tags/${tag}`}>
+                          <span>#{tag} </span>
+                        </Link>
+                      )
+                    })}
+                  </div>
+                </div>
+                {(index+1!==tags.length)?<hr className={blogStyles.horizontalLine}></hr>:null}
+              </li>
+            )
+          })}
+        </ol>
+        <Pagination
+          numPages={numPages}
+          prevPage={prevPage}
+          nextPage={nextPage}
+          currentPage={currentPage}
+          isFirst={isFirst}
+          isLast={isLast}
+          range={5}
+          />
       </div>
-
     </Layout>
   )
 }
@@ -82,7 +66,7 @@ query ($skip: Int!, $limit: Int!){
   ) {
     edges {
       node {
-        excerpt(pruneLength: 200)
+        excerpt(pruneLength: 105)
         frontmatter {
           title
           date

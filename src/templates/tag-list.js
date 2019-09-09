@@ -19,7 +19,7 @@ const TagPage = ({data, pageContext}) => {
         {data.allMarkdownRemark.edges.map((edge) => {
           return (
           <li className={tagStyles.post}>
-            <Link to={`/tag/${edge.node.frontmatter.path}`}>
+            <Link to={`/blog/${edge.node.frontmatter.path}`}>
               <h2>{edge.node.frontmatter.title}</h2>
               <p>{edge.node.excerpt}</p>
               <p>{edge.node.frontmatter.date}</p>

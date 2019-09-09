@@ -1,0 +1,53 @@
+.PaginationSection{
+  display: flex;
+  margin: auto;
+  width: auto;
+  justify-content: center;
+  
+  .PaginationContainer{
+    width: auto;
+    display: flex;
+    position: relative;
+
+    .PrevArrow{
+      position: absolute;
+      left: -22px;
+    }
+
+    .NextArrow{
+      position: absolute;
+      right: -22px;
+    }
+
+    .ListItem{
+      list-style-type: none;
+      margin: 0px 8px;
+    }
+
+    .Link{
+      color:black;
+      //padding: 0px 6px;
+      text-decoration: none;
+      font-family: "Arial";
+      font-size: 20px;
+      position: relative;
+    }
+
+    .activeLink{
+      color: #ffffff;
+    }
+
+    .activeLink:before{
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: -9px;
+      width: 30px;
+      height: 30px;
+      border-radius: 20px;
+      background: #CC3333;
+      z-index: -1;
+    }
+
+  }
+}
