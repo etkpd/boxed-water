@@ -1,0 +1,56 @@
+.posts {
+  list-style-type: none;
+  margin: auto;
+  max-width: 580px;
+  height: 726px;  
+
+  .horizontalLine{
+    border-top: 1px solid #000000;
+    margin: 0px;
+  }
+}
+
+.post {
+  margin-top: 11px;
+  margin-bottom: 14px;
+  
+  a {
+    color: #000000;
+    text-decoration: none;
+  }
+
+  a:hover {
+  }
+
+  h2 {
+     font-weight: normal;
+     margin-bottom: 0;
+     font-size: 30px;
+     font-family: "Arial";
+     color: #000000;
+     padding-bottom: 8px;
+   }
+ 
+   p {
+     font-family: "Arial";
+     color: #000000;
+     font-size: 18px;
+     padding-bottom: 10px;
+   }
+
+
+  .DateAndTags{
+    padding-bottom: 5px;
+
+    .date{
+      display: inline;
+    }
+
+    .tags{
+      padding-left:10px;
+      display: inline;
+    }
+  }
+
+}
+

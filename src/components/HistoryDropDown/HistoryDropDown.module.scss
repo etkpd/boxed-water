@@ -1,0 +1,139 @@
+.main{
+  display:flex;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0.5em;
+    right: 0.4em;
+    width: 0.6em;
+    height: 0.6em;
+    border: 0.1em solid #217A64;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    transition: opacity 0.2s;
+    border-left: none;
+    border-top: none;
+    top: 0.3em;
+  }
+
+}
+
+.focused{
+  display:flex;
+
+   &:after, &:before {
+    content: "";
+    position: absolute;
+    top: 0.5em;
+    right: 0.4em;
+    width: 0.6em;
+    height: 0.6em;
+    border: 0.1em solid rgb(33, 42, 122);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    transition: opacity 0.2s;
+  }
+  &:before {
+    border-right: none;
+    top: 0.65em;
+    border-bottom: none;
+    border-left: none;
+  }
+  &:after {
+    border-right: none;
+    border-bottom: none;
+    opacity: 0;
+  } 
+
+}
+
+.selectLabel{
+  margin: auto;
+  font-family: "Roboto-Regular";
+  font-size: 18px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #000000;
+}
+
+select {
+  background-color: white;
+  border: 1px solid #000000;
+  border-radius: 3px;
+  margin-left: 5px;
+  display: inline-block;
+  font: inherit;
+  line-height: 2em;
+  padding: 0px 0px 0px 8px;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+}
+
+select.select{
+  font-family: "Roboto-Regular";
+    font-size: 13px;
+    color: #000000;
+    width: 98px;
+    height: 26px;
+
+  /* &:after, &:before {
+    content: "";
+    position: absolute;
+    top: 0.5em;
+    right: 0.4em;
+    width: 0.6em;
+    height: 0.6em;
+    border: 0.1em solid #217A64;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    transition: opacity 0.2s;
+  }
+  &:before {
+    border-left: none;
+    border-top: none;
+    top: 0.3em;
+  }
+  &:after {
+    border-right: none;
+    border-bottom: none;
+    opacity: 0;
+  } */
+}
+
+select.select:focus{
+ /*  &:after, &:before {
+    content: "";
+    position: absolute;
+    top: 0.5em;
+    right: 0.4em;
+    width: 0.6em;
+    height: 0.6em;
+    border: 0.1em solid #217A64;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    transition: opacity 0.2s;
+  }
+  &:before {
+    border-left: none;
+    border-top: none;
+    top: 0.3em;
+  }
+  &:after {
+    border-right: none;
+    border-bottom: none;
+    opacity: 0;
+  } */
+}
+
+.option{
+  color: #000000;
+}

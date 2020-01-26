@@ -1,0 +1,62 @@
+.CartonImage1{
+  height: 14.375rem;
+}
+.CartonImage2{
+  height: 25rem;
+}
+.CartonImage3{
+  height: 28.4125rem;
+}
+
+.ImageSelectionSection{
+  height: 564px;
+  border: red solid 1px;
+  margin: 0px -1.875rem;
+  padding: 0px 0px;
+}
+
+.Images{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.ImageContainer{
+  width: 195px;
+  justify-self: center;
+  align-self: end;
+}
+
+.quantitySelection{
+  display: flex;
+}
+
+.StepsLabel{
+  width: 262px;
+  margin: 12px auto;
+  font-family: "Roboto-Regular";
+  font-size: 27px;
+  font-weight: normal;
+}
+
+.PackSizeSelection{
+  width: 588.5px;
+  margin: 11px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  justify-items: center;
+}
+
+.DeliveryOptions{
+  width: 453px;
+  margin: 15px auto;
+  display: block;
+  padding-left: 35px;
+  position: relative;
+}
+
+.SubscribeDropDown{    
+  position: absolute;
+    right: -178px;
+    bottom: 4px;
+}

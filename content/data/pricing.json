@@ -1,0 +1,48 @@
+[
+  {
+		"size": "250ML",
+		"pack_sizes": [
+			{
+				"size": "24 pack",
+				"price": 24.74,
+				"subAndSave": true
+			},
+			{
+				"size": "8 pack",
+				"price": 13.42,
+				"subAndSave": false
+			}
+		]
+  },
+	{
+		"size": "500ML",
+		"pack_sizes": [
+			{
+				"size": "24 pack",
+				"price": 44.96,
+				"subAndSave": true
+			},
+			{
+				"size": "12 pack",
+				"price": 24.74,
+				"subAndSave": true
+			},
+			{
+				"size": "6 pack",
+				"price": 15.42,
+				"subAndSave": false
+			}
+		]
+	},
+	{
+		"size": "1L",
+		"pack_sizes": [
+			{
+				"size": "12 pack",
+				"price": 35.74,
+				"subAndSave": true
+			}
+		]
+	
+	}
+]

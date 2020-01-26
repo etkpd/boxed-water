@@ -1,0 +1,83 @@
+.CartonImage1{
+  height: 14.375rem;
+  filter: blur(2px);
+}
+.CartonImage2{
+  height: 25rem;
+}
+.CartonImage3{
+  height: 28.4125rem;
+  filter: blur(2px);
+}
+
+.ImageSelectionSection{
+  height: 521px;
+  margin: 0px 15.125rem;
+  margin-top: 24px;
+  padding: 0px 0px;
+}
+
+.Images{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.ImageContainer{
+  width: 195px;
+  justify-self: center;
+  align-self: end;
+  cursor: pointer;
+}
+
+.quantitySelection{
+  display: flex;
+}
+
+.StepsLabel{
+  width: 262px;
+  margin: 12px auto;
+  font-family: "Roboto-Regular";
+  font-size: 27px;
+  font-weight: normal;
+}
+
+.PackSizeSelection{
+  margin: 11px auto;
+  display: flex;
+  justify-content: center;
+}
+
+.PackSizeSelectionButtonContainer{
+  margin: 0px 5px
+}
+
+.DeliveryOptions{
+  width: 453px;
+  margin: 15px auto;
+  display: block;
+  padding-left: 79px;
+  position: relative;
+}
+
+.SubscribeDropDown{    
+  position: absolute;
+  right: -221px;
+  bottom: 4px;
+}
+
+.TotalPriceSection{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 13px;
+  width: 100%;
+  margin: auto;
+  justify-content: center;
+
+  .TotalPrice{
+    font-size: 32px;
+    font-family: 'Roboto-Regular';
+    align-self: center;
+    text-align: right;
+    color: #217A64;
+  }
+}
